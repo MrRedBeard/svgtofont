@@ -1,6 +1,9 @@
 Changed to output JavaScript file with unicode references for each icon
 https://github.com/MrRedBeard/svgtofont
 
+To install on a project 
+npm i https://github.com/MrRedBeard/svgtofont
+
 npm install -g yarn
 npm install -g tsbb
 
