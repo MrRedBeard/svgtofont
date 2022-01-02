@@ -1,0 +1,21 @@
+Changed to output JavaScript file with unicode references for each icon
+https://github.com/MrRedBeard/svgtofont
+
+npm install -g yarn
+npm install -g tsbb
+
+npm install
+npm run build
+node lib/index.js
+tsbb build --disable-babel -f src/index.ts -f src/cli.ts
+
+copy \lib and \src to project that consumes svgtofont
+
+src\index.ts
+
+
+Original
+https://github.com/jaywcjlove/svgtofont
+
+Reference
+https://github.com/jaywcjlove/tsbb

@@ -184,6 +184,7 @@ export default async (options: SvgToFontOptions = {}) => {
     await fs.ensureDir(options.dist);
     const unicodeObject = await createSVG(options);
 
+    let jsString: string[] = [];
     let cssString: string[] = [];
     let cssToVars: string[] = [];
     let cssIconHtml: string[] = [];
@@ -205,6 +206,8 @@ export default async (options: SvgToFontOptions = {}) => {
         cssString.push(`.${symbolName}:before { content: "\\${encodedCodes.toString(16)}"; }\n`);
         cssToVars.push(`$${symbolName}: "\\${encodedCodes.toString(16)}";\n`);
       }
+
+      jsString.push(`"${symbolName}": "${encodedCodes.toString(16)}"\n`);
 
       cssIconHtml.push(`<li class="class-icon"><i class="${iconPart}</i><p class="name">${name}</p></li>`);
       unicodeHtml.push(`<li class="unicode-icon"><span class="iconfont">${_code}</span><h4>${name}</h4><span class="unicode">&amp;#${encodedCodes};</span></li>`);
@@ -246,6 +249,9 @@ export default async (options: SvgToFontOptions = {}) => {
       let fontClassPath = path.join(options.dist, 'index.html');
       let unicodePath = path.join(options.dist, 'unicode.html');
       let symbolPath = path.join(options.dist, 'symbol.html');
+      let jsFileName = options.fontName + '.js'
+      let jsPath = path.join(options.dist, jsFileName);
+
       // setting default home page.
       const indexName = pageName.includes(options.website.index) ? pageName.indexOf(options.website.index) : 0;
       pageName.forEach((name, index) => {
@@ -303,6 +309,11 @@ export default async (options: SvgToFontOptions = {}) => {
       const symbolHtmlStr = await createHTML(options.website.template, tempData);
       fs.outputFileSync(symbolPath, symbolHtmlStr);
       console.log(`${color.green('SUCCESS')} Created ${unicodePath} `);
+
+      //Output JS
+      let tempJS = `const ${options.fontName} = {${jsString.join(',')}};`;
+      fs.outputFileSync(jsPath, tempJS);
+      console.log(`${color.green('SUCCESS')} Created ${jsPath} `);
     }
 
     if (options.outSVGPath) {
