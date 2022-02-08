@@ -1,9 +1,29 @@
 https://github.com/MrRedBeard/svgtofont 
 
 
+
 <a href="https://github.com/jaywcjlove/svgtofont/">
     Visit the original
   </a>
+
+### Install:
+
+  npm init
+  
+  npm install -g pkg
+  
+  npm install https://github.com/MrRedBeard/svgtofont
+  
+  npm install grunt
+  
+  npm install --save @uiw/react-github-corners 
+  
+  
+  Copy styles folder from svgtofont node package to root of project
+  
+-------------------------------------------------------------------------------------
+  
+  
 <p align="center">
   <a href="https://github.com/jaywcjlove/svgtofont/">
     <img src="https://user-images.githubusercontent.com/1680273/106147487-dfb22880-61b2-11eb-8462-4f443a4c2201.png" alt="SVG To Font" />
