@@ -1,6 +1,8 @@
-https://github.com/MrRedBeard/svgtofont  
+# Use the latest version https://github.com/Kitchen-JS/svgtofont
 
-Used on https://github.com/PEC-Developement-Team/PEC-Icons  
+# Used on https://github.com/PEC-Developement-Team/PEC-Icons  
+
+-------------------------------------------------------------------------------------
 
 <a href="https://github.com/jaywcjlove/svgtofont/">
     Visit the original
